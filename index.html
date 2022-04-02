@@ -27,18 +27,16 @@
 		</style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script>
-		$(document).ready(function () {
-			$(window).on("load resize", function () { // wait for the images to complete loading
-				$(".row").each(function () {
-					var row = $(this);
-					var imgs = row.find("img");
-					imgs.height(1000);
-					var combinedWidth = imgs.get().reduce(function(sum, img) {
-						return sum + img.clientWidth;
-					}, 0);
-					var diff = row.width() / combinedWidth;
-					imgs.height(999 * diff); // 999 allows 1 px of wiggle room, in case it's too wide
-				});
+		$(window).on("load resize", function () { // wait for the images to complete loading
+			$(".row").each(function () {
+				var row = $(this);
+				var imgs = row.find("img");
+				imgs.height(1000);
+				var combinedWidth = imgs.get().reduce(function(sum, img) {
+					return sum + img.clientWidth;
+				}, 0);
+				var diff = row.width() / combinedWidth;
+				imgs.height(999 * diff); // 999 allows 1 px of wiggle room, in case it's too wide
 			});
 		});
 		</script>
