@@ -1,1 +1,1 @@
-sagiri izumi
+Sagiri Izumi
