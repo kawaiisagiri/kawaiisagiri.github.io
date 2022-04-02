@@ -1,1 +1,59 @@
-sagiri izumi
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+		div {
+			display: block;
+			padding: 0 !important;
+		}
+		
+		img{
+			vertical-align: top;
+			display: inline-block !important;
+			padding: 0 !important;
+			float: left;
+		}
+		
+		body{
+			padding: 0;
+			margin: 0;
+		}
+		
+		.row{
+			clear: left;
+		}
+		</style>
+		<script>
+		$(document).ready(function () {
+			$(window).on("load resize", function () { // wait for the images to complete loading
+				$(".row").each(function () {
+					var row = $(this);
+					var imgs = row.find("img");
+					imgs.height(1000);
+					var combinedWidth = imgs.get().reduce(function(sum, img) {
+						return sum + img.clientWidth;
+					}, 0);
+					var diff = row.width() / combinedWidth;
+					imgs.height(999 * diff); // 999 allows 1 px of wiggle room, in case it's too wide
+				});
+			});
+		});
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	</head>
+	
+	<body>
+		<div>
+			<img width="50%" src="1.gif">
+			<img width="50%" src="2.gif">
+			<img width="50%" src="3.gif">
+			<img width="50%" src="4.gif">
+			<div class="row">
+				<img src="5.gif">
+				<img src="6.gif">
+			</div>
+		</div>
+	</body>
+</html>
