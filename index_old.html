@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Kawaii Sagiri Izumi</title>
+		<meta name="theme-color" content="#ffb6c1" />
+		<style>
+		div {
+			display: block;
+			padding: 0 !important;
+		}
+		
+		img{
+			vertical-align: top;
+			display: inline-block !important;
+			padding: 0 !important;
+			float: left;
+		}
+		
+		body{
+			padding: 0;
+			margin: 0;
+		}
+		
+		.row{
+			clear: left;
+		}
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script>
+		$(window).on("load resize", function () { // wait for the images to complete loading
+			$(".row").each(function () {
+				var row = $(this);
+				var imgs = row.find("img");
+				imgs.height(1000);
+				var combinedWidth = imgs.get().reduce(function(sum, img) {
+					return sum + img.clientWidth;
+				}, 0);
+				var diff = row.width() / combinedWidth;
+				imgs.height(999 * diff); // 999 allows 1 px of wiggle room, in case it's too wide
+			});
+		});
+		</script>
+	</head>
+	
+	<body>
+		<div>
+			<div class="row">
+				<img src="1.gif">
+				<img src="2.gif">
+			</div>
+			<div class="row">
+				<img src="3.gif">
+				<img src="4.gif">
+			</div>
+			<div class="row">
+				<img src="5.gif">
+				<img src="6.gif">
+			</div>
+			<div class="row">
+				<img src="7.gif">
+				<img src="8.gif">
+				<img src="9.gif">
+			</div>
+			<div class="row">
+				<img src="10.gif">
+				<img src="11.gif">
+			</div>
+			<div class="row">
+				<img src="12.gif">
+				<img src="13.gif">
+			</div>
+			<div class="row">
+				<img src="14.gif">
+				<img src="15.gif">
+			</div>
+			<div class="row">
+				<img src="16.gif">
+				<img src="17.gif">
+			</div>
+			<div class="row">
+				<img src="18.gif">
+				<img src="19.gif">
+			</div>
+			<div class="row">
+				<img src="20.gif">
+				<img src="21.gif">
+			</div>
+		</div>
+	</body>
+</html>
